@@ -3,7 +3,7 @@
 #include <math.h>
 #include <iomanip>
 #include <vector>
-#define FILENAME "LU.txt"
+#define FILENAME "RADIX.txt"
 
 using namespace std;
 
@@ -38,7 +38,7 @@ void simulate(int cache_size, int block_size, int associativity)
 	unsigned int index_mask = num_set - 1;//index_mask is for giving consecutive 1s of length index
 
 	vector<cache_content> one_num_set_block(associativity);//blocks in a set
-	vector<vector<cache_content>> cache(num_set, one_num_set_block);//num_set num_sets one_num_set_block forms a cache
+	vector< vector<cache_content> > cache(num_set, one_num_set_block);//num_set num_sets one_num_set_block forms a cache
 	//cout<<"cache num_set:"<<num_set<<endl;
 
     FILE * fp = fopen(FILENAME, "r");					//read file

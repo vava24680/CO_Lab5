@@ -17,12 +17,12 @@ modify the pc source mux to jump mux//Done
 */
 module Simple_Single_CPU(
         clk_i,
-		rst_i
+		start_i
 		);
 
 //I/O port
 input         clk_i;
-input         rst_i;
+input         start_i;
 
 //Internal Signles
 /*For SLL instruction*/
@@ -93,7 +93,7 @@ assign Branch_signal = Branch_o & type_branch_o;
 ProgramCounter PC(
 		//Done
         .clk_i(clk_i),
-	    .rst_i (rst_i),
+	    .rst_i (start_i),
 	    .pc_in_i(pc_number_in),
 		//.pc_in_i(pc_number_next),
 		.pc_out_o(pc_number)
@@ -190,7 +190,7 @@ MUX_2to1 #(.size(32)) Select_Final_address(
 Reg_File RF(
 		//Done
         .clk_i(clk_i),
-	    .rst_i(rst_i),
+	    .rst_i(start_i),
         .RSaddr_i(instruction_o[25:21]),
         .RTaddr_i(instruction_o[20:16]),
         .RDaddr_i(WriteReg),
@@ -232,7 +232,7 @@ Sign_Extend SE(
 
 ALU ALU(
 		//Done
-		.rst(rst_i),
+		.rst(start_i),
         .src1_i(ALU_src_1),
 	    .src2_i(ALU_src_2),
 	    .ctrl_i(ALUCtrl_o),

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <iomanip>
-#define FILENAME "DCACHE.txt"
+#define FILENAME "ICACHE.txt"
 
 using namespace std;
 
